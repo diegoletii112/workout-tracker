@@ -10,5 +10,5 @@ import portfolio.workout.tracker.models.MuscleGroup;
 import java.util.Set;
 
 public interface ExerciseRepository  extends JpaRepository<Exercise, Long>, JpaSpecificationExecutor<Exercise> {
-    Page<Exercise> findExercisesByMuscleGroups(Set<MuscleGroup> muscleGroups, Pageable pageable);
+    Page<Exercise> findDistinctByMuscleGroupsIn(Set<MuscleGroup> muscleGroups, Pageable pageable);
 }

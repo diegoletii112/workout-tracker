@@ -31,7 +31,7 @@ public class ExerciseService {
         PageRequest pageRequest = mapper.dtoToPageable(filterDTO);
         if (filterDTO.getMuscleGroupsNames() != null && !filterDTO.getMuscleGroupsNames().isEmpty()) {
             Set<MuscleGroup> muscleGroups = muscleGroupsMapper.getMuscleGroupsFromDTO(filterDTO);
-            return exerciseRepository.findExercisesByMuscleGroups(muscleGroups, pageRequest);
+            return exerciseRepository.findDistinctByMuscleGroupsIn(muscleGroups, pageRequest);
 
         }
         return exerciseRepository.findAll(pageRequest);
